@@ -28,7 +28,7 @@ class ChatMessage(BaseModel):
     message: str
 
 # Defina aqui sua chave da OpenAI
-openai.api_key = "OPENAI_API_KEY"  
+openai.api_key = os.getenv("OPENAI_API_KEY")  
 
 # Rota para comunicação com o FrontEnd
 @app.post("/chat")
