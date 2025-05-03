@@ -12,15 +12,6 @@ type MessageType = {
   sender: "user" | "bot"
 }
 
-// Remover este objeto de respostas simuladas
-const botResponses: Record<string, string> = {
-  "vamos ganhar da navi?":
-    "Com certeza! Nossa equipe está em ótima forma e preparada para enfrentar a NAVI. FURIA SEMPRE!",
-  "qual a lineup da furia hoje?":
-    "A lineup de hoje é: kscerato, yuurih, KSCERATO, arT, drop e chelo. Prontos para mais uma vitória!",
-  "que horas é o jogo?": "O próximo jogo da FURIA será hoje às 16:00 (horário de Brasília). Não perca!",
-}
-
 export default function Home() {
   const [input, setInput] = useState("")
   const [messages, setMessages] = useState<MessageType[]>([
@@ -53,7 +44,7 @@ export default function Home() {
 
     try {
       // Envia a mensagem para a API
-      const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/chat`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
