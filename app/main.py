@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from app.prompts import furia_system_prompt
+from prompts import furia_system_prompt
 import openai
 import os
 
