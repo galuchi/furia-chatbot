@@ -11,7 +11,7 @@ app = FastAPI()
 # Configura o CORS para permitir conexão com o front
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Em produção, especifique o domínio correto
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -22,19 +22,20 @@ class ChatMessage(BaseModel):
     message: str
 
 # Defina aqui sua chave da OpenAI
-openai.api_key = os.getenv("OPENAI_API_KEY")  
+openai.api_key = "OPENAI_API_KEY"  
 
+# Rota para comunicação com o FrontEnd
 @app.post("/chat")
 async def chat_with_furia_bot(chat: ChatMessage):
     try:
-        response = openai.ChatCompletion.create(
+        response = openai.responses.create(
             model="gpt-3.5-turbo",
-            messages=[
+            input=[
                 {"role": "system", "content": furia_system_prompt},
                 {"role": "user", "content": chat.message}
             ]
         )
-        answer = response.choices[0].message["content"].strip()
+        answer = response.output_text.strip()
         return {"response": answer}
 
     except Exception as e:
