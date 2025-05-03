@@ -8,10 +8,16 @@ import os
 # Inicializa a API FastAPI
 app = FastAPI()
 
+origins = [
+    "https://furia-chatbot-gray.vercel.app",
+    "https://furia-chatbot-hlx3nuaot-blouser240-gmailcoms-projects.vercel.app",
+    "http://localhost:3000",
+]
+
 # Configura o CORS para permitir conexão com o front
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  
+    allow_origins=origins,  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
