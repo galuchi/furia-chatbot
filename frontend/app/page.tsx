@@ -160,16 +160,20 @@ export default function Home() {
             <h3 className="text-xl font-bold mb-2 text-[#0085FF]">PRÓXIMO JOGO</h3>
             <div className="flex items-center justify-between">
               <div className="text-center">
-                <img src="/furia-small.svg" alt="FURIA" className="w-16 h-16 mx-auto" />
-                <p className="font-bold">FURIA</p>
+                <a href="https://www.hltv.org/team/8297/furia" target="_blank" className="inline-block hover:scale-105 transition-transform">
+                  <img src="/furia-small.svg" alt="FURIA" className="w-16 h-16 mx-auto" />
+                  <p className="font-bold">FURIA</p>
+                </a>
               </div>
               <div className="text-center">
                 <p className="text-xl font-bold">VS</p>
                 <p className="text-sm text-[#0085FF]">16:00</p>
               </div>
               <div className="text-center">
-                <img src="/big-small.svg" alt="NAVI" className="w-16 h-16 mx-auto" />
-                <p className="font-bold">BIG</p>
+                <a href="https://www.hltv.org/team/7532/big" target="_blank" className="inline-block hover:scale-105 transition-transform">
+                  <img src="/big-small.svg" alt="NAVI" className="w-16 h-16 mx-auto" />
+                  <p className="font-bold">BIG</p>
+                </a>
               </div>
             </div>
           </div>
