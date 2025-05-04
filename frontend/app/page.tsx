@@ -210,19 +210,32 @@ export default function Home() {
           <div className="bg-zinc-900 p-4 rounded-lg border border-zinc-800 animate-slide-in">
             <h3 className="text-xl font-bold mb-2 text-[#0085FF]">LINEUP</h3>
             <div className="grid grid-cols-3 gap-2">
-              {["kscerato", "yuurih", "FalleN", "YEKINDAR", "molodoy"].map((player) => (
-                <div key={player} className="text-center">
-                  <div className="w-16 h-16 mx-auto bg-zinc-800 rounded-full overflow-hidden">
-                    <img
-                      src={`/player-${player}.png`}
-                      alt={player}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        ;(e.target as HTMLImageElement).src = "/player-placeholder.png"
-                      }}
-                    />
-                  </div>
-                  <p className="mt-1 text-sm font-bold">{player}</p>
+              {[
+                { name: "kscerato", link: "https://www.hltv.org/player/15631/kscerato" },
+                { name: "yuurih", link: "https://www.hltv.org/player/12553/yuurih" },
+                { name: "FalleN", link: "https://www.hltv.org/player/2023/fallen" },
+                { name: "YEKINDAR", link: "https://www.hltv.org/player/13915/yekindar" },
+                { name: "molodoy", link: "https://www.hltv.org/player/24144/molodoy" }
+              ].map((player) => (
+                <div key={player.name} className="text-center">
+                  <a
+                    href={player.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block hover:scale-105 transition-transform"
+                  >
+                    <div className="w-16 h-16 mx-auto bg-zinc-800 rounded-full overflow-hidden">
+                      <img
+                        src={`/player-${player.name}.png`}
+                        alt={player.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = "/player-placeholder.png";
+                        }}
+                      />
+                    </div>
+                    <p className="mt-1 text-sm font-bold text-white">{player.name}</p>
+                  </a>
                 </div>
               ))}
             </div>
