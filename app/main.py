@@ -10,7 +10,6 @@ app = FastAPI()
 
 origins = [
     "https://furia-chatbot-gray.vercel.app",
-    "https://furia-chatbot-hlx3nuaot-blouser240-gmailcoms-projects.vercel.app",
     "http://localhost:3000",
 ]
 
