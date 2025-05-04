@@ -36,3 +36,15 @@ cd furia-chatbot
 ```
 
 ### 2. Configurar o ambiente
+
+Substitua algumas linhas de código para o programa funcionar em ambiente local
+
+- Em **page.tsx** (linha 47)
+
+```javascript
+//Troque
+const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/chat`, {
+
+//Por
+const response = await fetch("http://localhost:8000/chat", {   //Certifique-se que essa será sua porta hospedada no backend
+```
