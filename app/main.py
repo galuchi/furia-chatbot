@@ -35,7 +35,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 async def chat_with_furia_bot(chat: ChatMessage):
     try:
         response = openai.responses.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4.1-mini",
             input=[
                 {"role": "system", "content": furia_system_prompt},
                 {"role": "user", "content": chat.message}
