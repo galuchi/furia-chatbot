@@ -8,6 +8,7 @@ import os
 # Inicializa a API FastAPI
 app = FastAPI()
 
+# Rotas para o endereço do front-end
 origins = [
     "https://furia-chatbot-gray.vercel.app",
     "http://localhost:3000",
@@ -26,8 +27,9 @@ app.add_middleware(
 class ChatMessage(BaseModel):
     message: str
 
-# Defina aqui sua chave da OpenAI
-openai.api_key = os.getenv("OPENAI_API_KEY")  
+# Resgata a chave de API das variáveis de ambiente
+# É possível definir manualmente sua chave por aqui, mas não é recomendado
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Rota para comunicação com o FrontEnd
 @app.post("/chat")
@@ -40,7 +42,7 @@ async def chat_with_furia_bot(chat: ChatMessage):
                 {"role": "user", "content": chat.message}
             ]
         )
-        answer = response.output_text.strip()
+        answer = response.output_text.strip()   #Grava a resposta gerada pelo modelo
         return {"response": answer}
 
     except Exception as e:
