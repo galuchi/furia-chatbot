@@ -44,7 +44,7 @@ export default function Home() {
 
     try {
       // Envia a mensagem para a API
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/chat`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/chat`, {   // O endereço para o back-end está sendo resgatado por variáveis de ambiente
         method: "POST",
         headers: {
           "Content-Type": "application/json",
